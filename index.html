@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<style type="text/css">
+		.astroboy{position: absolute;left: 0; top: 0;}
+		#poetText{z-index: 9;position: absolute;left: 300px; top: 100px; font-size: 2rem;}
+	</style>
+</head>
+<body>
+	<div id="poetText"></div>
+
+    <script type="text/javascript">
+
+    	var a = ["astroboy","astroboy2"];
+
+    for(var i=0;i<100;i++){
+        var t = document.createElement("img");
+        t.src = a[randomBH(0,1)] + ".jpg";
+        t.className = "astroboy";
+        t.style.width = randomBH(20,80) + "px";
+        t.style.height = "auto";
+        t.style.left = Math.random()*screen.availWidth + "px";
+        t.style.top = Math.random()*screen.availHeight + "px";
+        document.body.appendChild(t);
+}
+
+    var poet = "astronomy<br> my name is munkh.<br> i love astronomy when i watch Armagedon 1998.<br> that movie change my mind about astronomy.<br>From that day on,<br> I watched all the movies about astronomy and aliens.<br> Another memorable movie is 2015's the Martian.<br> After watching this movie,<br> the expectation arose that when will mankind create life on Mars.<br>";
+    var poetArr = poet.split(" ");
+
+    var myTimer = setInterval(print,500);
+    var s=0;
+    function print(){
+    	poetText.innerHTML += poetArr[s] + " ";
+    	s++;
+    	if(s == poetArr.lenght){
+    		clearInterval(myTimer);
+    	}
+    }
+    
+
+    function randomBH(min, max) {
+    	min = Math.ceil(min);
+    	max = Math.floor(max);
+    	return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+
+    </script>
+</body>
+</html>
